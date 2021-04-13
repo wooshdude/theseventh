@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://spaceCowboy-sheet.png" type="Texture" id=1]
 [ext_resource path="res://playerPlatforming.gd" type="Script" id=2]
@@ -72,6 +72,9 @@ radius = 5.02714
 height = 7.85777
 
 [sub_resource type="Animation" id=12]
+resource_name = "basicAttack"
+
+[sub_resource type="Animation" id=13]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -86,7 +89,7 @@ tracks/0/keys = {
 "values": [ 0 ]
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=14]
 length = 0.4
 loop = true
 tracks/0/type = "value"
@@ -140,8 +143,9 @@ shape = SubResource( 11 )
 [node name="hitboxShape" type="CollisionShape2D" parent="hitbox"]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/idle = SubResource( 12 )
-anims/walking = SubResource( 13 )
+anims/basicAttack = SubResource( 12 )
+anims/idle = SubResource( 13 )
+anims/walking = SubResource( 14 )
 
 [node name="hatWire2" type="Particles2D" parent="."]
 position = Vector2( 0, -9 )

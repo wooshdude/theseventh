@@ -2,35 +2,36 @@
 
 [ext_resource path="res://DialogBox.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
-[ext_resource path="res://Minecraft.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://type_writer.ttf" type="DynamicFontData" id=3]
 
 [sub_resource type="DynamicFont" id=1]
-size = 25
+size = 6
 font_data = ExtResource( 3 )
 
 [node name="Control" type="Control"]
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_right = 0.159
+anchor_bottom = 0.072
+margin_right = 0.23999
+margin_bottom = 0.079998
 __meta__ = {
+"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="DialogBox" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 224.0
-margin_top = 384.0
-margin_right = -64.0
-margin_bottom = -24.0
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="TextureRect" type="TextureRect" parent="DialogBox"]
+visible = false
 modulate = Color( 0, 0, 0, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_bottom = 41.8926
 texture = ExtResource( 2 )
 expand = true
 stretch_mode = 1
@@ -41,13 +42,11 @@ __meta__ = {
 [node name="RichTextLabel" type="RichTextLabel" parent="DialogBox"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 15.0
-margin_top = 15.0
-margin_right = -15.0
-margin_bottom = -15.0
+rect_clip_content = false
 custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true
 bbcode_text = "Text"
+tab_size = 0
 text = "Text"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -56,10 +55,12 @@ __meta__ = {
 [node name="Tween" type="Tween" parent="DialogBox"]
 
 [node name="Person Speaking background" type="TextureRect" parent="DialogBox"]
+visible = false
 modulate = Color( 0, 0, 0, 1 )
-margin_left = -192.0
-margin_right = -32.0
-margin_bottom = 192.0
+margin_left = -235.0
+margin_top = -142.891
+margin_right = -133.0
+margin_bottom = -66.8909
 texture = ExtResource( 2 )
 expand = true
 __meta__ = {

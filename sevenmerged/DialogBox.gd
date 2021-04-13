@@ -1,6 +1,6 @@
 extends Control
 
-var dialog = [
+export var dialog = [
 	'test1eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee', 
 	'big [wave][rainbow]testing[/rainbow] gamer time eeeeeeeeeeeeeeee [tornado amp = 100]PP[/tornado][/wave] gamer time. XDDDDD wowowe', 
 	'test3eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
@@ -9,7 +9,7 @@ var dialog = [
 
 var dialog_index = 0
 var finished = false
-var text_speed = 20
+export var text_speed = 20
 var text_time
 
 func _ready():
