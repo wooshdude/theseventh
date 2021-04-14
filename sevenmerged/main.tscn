@@ -503,6 +503,7 @@ scale = Vector2( 0.114118, 0.114118 )
 texture = ExtResource( 5 )
 
 [node name="Control" parent="camera" instance=ExtResource( 7 )]
+visible = false
 margin_left = -30.5575
 margin_top = -42.5381
 margin_right = -30.5575
