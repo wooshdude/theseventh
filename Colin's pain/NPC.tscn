@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://dialog.gd" type="Script" id=2]
+[ext_resource path="res://dialog_box.tscn" type="PackedScene" id=3]
+
+[node name="NPC" type="Node2D"]
+position = Vector2( 139, -14 )
+
+[node name="dialog" type="Control" parent="."]
+anchor_right = 0.159
+anchor_bottom = 0.072
+margin_left = -61.0
+margin_top = -65.0
+margin_right = 63.0
+margin_bottom = -33.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="dialog_box" parent="dialog" instance=ExtResource( 3 )]
+[connection signal="finished" from="dialog/dialog_box" to="dialog" method="_on_dialog_box_finished"]

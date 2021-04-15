@@ -16,3 +16,6 @@ func _process(delta):
 func switchCamTo(object):
 	camera.global_position.x = object.global_position.x
 	camera.global_position.y = object.global_position.y + -25
+
+
+
