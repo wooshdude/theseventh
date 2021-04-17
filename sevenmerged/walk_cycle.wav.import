@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/walk_cycle.wav-0400e21e283ccb3b49b2ad0ffd01cf44.sample"
+
+[deps]
+
+source_file="res://walk_cycle.wav"
+dest_files=[ "res://.import/walk_cycle.wav-0400e21e283ccb3b49b2ad0ffd01cf44.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

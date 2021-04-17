@@ -1,0 +1,105 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Merchant Tileset Sidescroller/merchant/walk.png" type="Texture" id=1]
+[ext_resource path="res://enemy1.gd" type="Script" id=2]
+[ext_resource path="res://enemy_takes_dmg_fx.wav" type="AudioStream" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "walk"
+length = 0.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4 ]
+}
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 13.0
+height = 0.0
+
+[sub_resource type="Gradient" id=3]
+offsets = PoolRealArray( 0, 0.00613497, 0.969325, 1 )
+colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=4]
+gradient = SubResource( 3 )
+
+[sub_resource type="Curve" id=5]
+_data = [ Vector2( 0, 0.202273 ), 0.0, -0.0384297, 0, 0, Vector2( 0.188172, 0.705682 ), -0.400478, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=6]
+curve = SubResource( 5 )
+
+[sub_resource type="ParticlesMaterial" id=7]
+lifetime_randomness = 0.46
+flag_disable_z = true
+direction = Vector3( 0, -1, 0 )
+spread = 61.95
+flatness = 0.32
+gravity = Vector3( 0, 30, 0 )
+initial_velocity = 49.5
+initial_velocity_random = 0.73
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+damping = 28.72
+angle = 720.0
+angle_random = 1.0
+scale = 12.76
+scale_random = 0.75
+scale_curve = SubResource( 6 )
+color_ramp = SubResource( 4 )
+
+[sub_resource type="CapsuleShape2D" id=8]
+radius = 5.0
+height = 8.0
+
+[node name="enemy1" type="KinematicBody2D"]
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 1, -16 )
+texture = ExtResource( 1 )
+hframes = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/walk = SubResource( 1 )
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2147483680
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( -2, -10 )
+shape = SubResource( 2 )
+
+[node name="Particles2D" type="Particles2D" parent="."]
+emitting = false
+amount = 25
+lifetime = 5.0
+one_shot = true
+speed_scale = 2.2
+explosiveness = 1.0
+randomness = 0.46
+process_material = SubResource( 7 )
+
+[node name="Timer" type="Timer" parent="."]
+process_mode = 0
+wait_time = 2.5
+one_shot = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -9 )
+shape = SubResource( 8 )
+
+[node name="damage" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+attenuation = 0.0441942
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
